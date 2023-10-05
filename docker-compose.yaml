@@ -1,0 +1,40 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-route
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/**
+          filters:
+           - name: RequestRateLimiter
+             args:
+               redis-rate-limiter.replenishRate: 10
+               redis-rate-limiter.burstCapacity: 20
+        - id: account-route
+          uri: http://localhost:8082
+          predicates:
+            - Path=/account/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 10
+                redis-rate-limiter.burstCapacity: 20
+        - id: business-route
+          uri: http://localhost:8083
+          predicates:
+            - Path=/business/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 10
+                redis-rate-limiter.burstCapacity: 20
+
+      globalfilters:
+        - name: RequestResponseLoggingFilter
+
+  security:
+    user:
+      name: user
+      password: password
+      roles: INDIVIDUAL, ADMIN, EMPLOYEE, BUSINESS
