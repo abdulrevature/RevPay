@@ -1,4 +1,4 @@
-package com.revature.project2.models;
+package com.revature.user.model;
 
 
 import org.springframework.stereotype.Component;
