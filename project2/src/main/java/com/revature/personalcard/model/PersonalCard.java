@@ -1,4 +1,4 @@
-package com.revature.personal_card.model;
+package com.revature.personalcard.model;
 
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
@@ -12,7 +12,9 @@ public class PersonalCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name="accountid") private long accountId;
+
+    @JoinColumn(name="userId") private long userId;
+    @JoinColumn(name="accountId") private long accountId;
     @Column private String cardholderName;
     @Column private long cardNumber;
     @Column private String cardType;
@@ -20,6 +22,7 @@ public class PersonalCard {
     @Column private int cvv;
     @Column private int billingZip;
     @Column private int pin;
+    @Column private String cardName;
 
     // Constructors
     public PersonalCard() {}
@@ -50,7 +53,8 @@ public class PersonalCard {
             int expDate,
             int cvv,
             int billingZip,
-            int pin
+            int pin,
+            String cardName
     ) {
         this.id = id;
         this.accountId = accountId;
@@ -61,6 +65,31 @@ public class PersonalCard {
         this.cvv = cvv;
         this.billingZip = billingZip;
         this.pin = pin;
+        this.cardName = cardName;
+    }
+
+    public PersonalCard(long id,
+                        long userId,
+                        long accountId,
+                        String cardholderName,
+                        long cardNumber,
+                        String cardType,
+                        int expDate,
+                        int cvv,
+                        int billingZip,
+                        int pin,
+                        String cardName) {
+        this.id = id;
+        this.userId = userId;
+        this.accountId = accountId;
+        this.cardholderName = cardholderName;
+        this.cardNumber = cardNumber;
+        this.cardType = cardType;
+        this.expDate = expDate;
+        this.cvv = cvv;
+        this.billingZip = billingZip;
+        this.pin = pin;
+        this.cardName = cardName;
     }
 
     // Getters and Setters
@@ -74,6 +103,8 @@ public class PersonalCard {
     public int getCvv() { return cvv; }
     public int getBillingZip() { return billingZip; }
     public int getPin() { return pin; }
+    public long getUserId() { return userId; }
+    public String getCardName() { return cardName; }
 
     // --- Setters
     public void setId(long id) { this.id = id; }
@@ -85,4 +116,6 @@ public class PersonalCard {
     public void setCvv(int cvv) { this.cvv = cvv; }
     public void setBillingZip(int billingZip) { this.billingZip = billingZip; }
     public void setPin(int pin) { this.pin = pin; }
+    public void setUserId(long userId) { this.userId = userId; }
+    public void setCardName(String cardName) { this.cardName = cardName; }
 }
