@@ -33,8 +33,10 @@ public class User {
     @Column
     private String phone;
 
-    @OneToMany
-    @JoinColumn
+
+    /*
+    @ManyToOne
+    @JoinColumn */
     private long busId;
 
 
