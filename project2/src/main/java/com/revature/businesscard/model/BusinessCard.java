@@ -24,6 +24,7 @@ public class BusinessCard {
 
     // Constructors
 
+    public BusinessCard(){};
     // Getters and Setters
     public BusinessCard(long id) { this.id = id; }
 
