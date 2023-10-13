@@ -28,6 +28,7 @@ public class BusinessCard {
     // Getters and Setters
     public BusinessCard(long id) { this.id = id; }
 
+    
     public BusinessCard(long cardNumber, int expDate, int cvv, int billingZip) {
         this.cardNumber = cardNumber;
         this.expDate = expDate;
@@ -80,4 +81,37 @@ public class BusinessCard {
     public String getCardName() { return cardName; }
 
     // --- Setters
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    public void setAccountId(long accountId) {
+        this.accountId = accountId;
+    }
+    public void setCardholderName(String cardholderName) {
+        this.cardholderName = cardholderName;
+    }
+    public void setCardNumber(long cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
+    }
+    public void setExpDate(int expDate) {
+        this.expDate = expDate;
+    }
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
+    public void setBillingZip(int billingZip) {
+        this.billingZip = billingZip;
+    }
+    public void setPin(int pin) {
+        this.pin = pin;
+    }
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+
+    
 }
