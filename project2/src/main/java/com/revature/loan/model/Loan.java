@@ -35,7 +35,7 @@ public class Loan {
 
     //    @ManyToMany
     //    @JoinColumn
-    private long buissnessId;
+    private long businessId;
 
     // Base constructor. (loan always starts without approval and without review)
     public Loan() {
@@ -54,17 +54,17 @@ public class Loan {
     }
 
     // Constructor with no loan ID
-    public Loan(BigDecimal loanBalance, boolean loanReviewed, boolean loanApproval, BigDecimal loanInterestRate, int loanTermLength, LocalDateTime loanRequestDateTime, long buissnessId) {
+    public Loan(BigDecimal loanBalance, boolean loanReviewed, boolean loanApproval, BigDecimal loanInterestRate, int loanTermLength, LocalDateTime loanRequestDateTime, long businessId) {
         this.loanBalance = loanBalance;
         this.loanReviewed = loanReviewed;
         this.loanApproval = loanApproval;
         this.loanInterestRate = loanInterestRate;
         this.loanTermLength = loanTermLength;
         this.loanRequestDateTime = loanRequestDateTime;
-        this.buissnessId = buissnessId;
+        this.businessId = businessId;
     }
 
-    // Constructor with no buissness ID
+    // Constructor with no business ID
     public Loan(long loadId, BigDecimal loanBalance, boolean loanReviewed, boolean loanApproval, BigDecimal loanInterestRate, int loanTermLength, LocalDateTime loanRequestDateTime) {
         this.loadId = loadId;
         this.loanBalance = loanBalance;
@@ -76,7 +76,7 @@ public class Loan {
     }
 
     // Constructor with everything
-    public Loan(long loadId, BigDecimal loanBalance, boolean loanReviewed, boolean loanApproval, BigDecimal loanInterestRate, int loanTermLength, LocalDateTime loanRequestDateTime, long buissnessId) {
+    public Loan(long loadId, BigDecimal loanBalance, boolean loanReviewed, boolean loanApproval, BigDecimal loanInterestRate, int loanTermLength, LocalDateTime loanRequestDateTime, long businessId) {
         this.loadId = loadId;
         this.loanBalance = loanBalance;
         this.loanReviewed = loanReviewed;
@@ -84,7 +84,7 @@ public class Loan {
         this.loanInterestRate = loanInterestRate;
         this.loanTermLength = loanTermLength;
         this.loanRequestDateTime = loanRequestDateTime;
-        this.buissnessId = buissnessId;
+        this.businessId = businessId;
     }
 
     public long getLoadId() {
@@ -143,11 +143,11 @@ public class Loan {
         this.loanRequestDateTime = loanRequestDateTime;
     }
 
-    public long getBuissnessId() {
-        return buissnessId;
+    public long getBusinessId() {
+        return businessId;
     }
 
-    public void setBuissnessId(long buissnessId) {
-        this.buissnessId = buissnessId;
+    public void setBusinessId(long businessId) {
+        this.businessId = businessId;
     }
 }
