@@ -1,4 +1,4 @@
-package com.revature.personalcard.model;
+package com.revature.personalCard.model;
 
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
@@ -18,7 +18,7 @@ public class PersonalCard {
     @Column private String cardholderName;
     @Column private long cardNumber;
     @Column private String cardType;
-    @Column private int expDate;
+    @Column private short expDate;
     @Column private int cvv;
     @Column private int billingZip;
     @Column private int pin;
@@ -29,14 +29,14 @@ public class PersonalCard {
 
     public PersonalCard(long id) { this.id = id; }
 
-    public PersonalCard(long cardNumber, int expDate, int cvv, int billingZip) {
+    public PersonalCard(long cardNumber, short expDate, int cvv, int billingZip) {
         this.cardNumber = cardNumber;
         this.expDate = expDate;
         this.cvv = cvv;
         this.billingZip = billingZip;
     }
 
-    public PersonalCard(String cardholderName, long cardNumber, int expDate, int cvv, int billingZip) {
+    public PersonalCard(String cardholderName, long cardNumber, short expDate, int cvv, int billingZip) {
         this.cardholderName = cardholderName;
         this.cardNumber = cardNumber;
         this.expDate = expDate;
@@ -50,7 +50,7 @@ public class PersonalCard {
             String cardholderName,
             long cardNumber,
             String cardType,
-            int expDate,
+            short expDate,
             int cvv,
             int billingZip,
             int pin,
@@ -74,7 +74,7 @@ public class PersonalCard {
                         String cardholderName,
                         long cardNumber,
                         String cardType,
-                        int expDate,
+                        short expDate,
                         int cvv,
                         int billingZip,
                         int pin,
@@ -112,7 +112,7 @@ public class PersonalCard {
     public void setCardholderName(String cardholderName) { this.cardholderName = cardholderName; }
     public void setCardNumber(long cardNumber) { this.cardNumber = cardNumber; }
     public void setCardType(String cardType) { this.cardType = cardType; }
-    public void setExpDate(int expDate) { this.expDate = expDate; }
+    public void setExpDate(short expDate) { this.expDate = expDate; }
     public void setCvv(int cvv) { this.cvv = cvv; }
     public void setBillingZip(int billingZip) { this.billingZip = billingZip; }
     public void setPin(int pin) { this.pin = pin; }

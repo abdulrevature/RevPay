@@ -1,4 +1,4 @@
-package com.revature.businesscard.service;
+package com.revature.businessCard.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.businesscard.dao.BusinessCardDAO;
-import com.revature.businesscard.model.BusinessCard;
+import com.revature.businessCard.dao.BusinessCardDAO;
+import com.revature.businessCard.model.BusinessCard;
 
 @Service
 public class BusinessCardService {
