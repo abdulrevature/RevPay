@@ -97,6 +97,5 @@ public class MoneyRequest {
         return "MoneyRequest [request_id=" + request_id + ", to_user_id=" + to_user_id + ", from_user_id="
                 + from_user_id + ", request_amount=" + request_amount + ", request_status=" + request_status + "]";
     }
-
-
+    
 }
