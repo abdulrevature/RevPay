@@ -1,4 +1,4 @@
-package com.revature.personalcard.service;
+package com.revature.personalcard.Service;
 
 import com.revature.personalcard.model.PersonalCard;
 import com.revature.personalcard.util.CardUtils;

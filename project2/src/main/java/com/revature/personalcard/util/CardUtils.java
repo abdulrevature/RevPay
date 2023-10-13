@@ -10,7 +10,9 @@ import java.util.Random;
 public class CardUtils {
 
     // Generates a 16-digit card number (15-digits + 1 Luhn algorithm check digit)
+
     public int generateCardNumber() {
+
         Random random = new Random();
 
         // Generates the first 15 characters of a card number
