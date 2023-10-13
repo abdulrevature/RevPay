@@ -92,4 +92,5 @@ public class Loan {
         this.loanRequestDateTime = loanRequestDateTime;
         this.businessId = businessId;
     }
+
 }
