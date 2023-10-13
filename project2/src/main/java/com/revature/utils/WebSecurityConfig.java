@@ -1,6 +1,6 @@
 package com.revature.utils;
 
-import com.revature.daos.UserDAO;
+//import com.revature.daos.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -29,19 +29,19 @@ This Util Class will define a couple things like password encryption and which r
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDAO userDAO;
+//    @Autowired
+//    private UserDAO userDAO;
 
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(
-                username -> (UserDetails) userDAO.findByUsername(username)
-                        .orElseThrow(
-                                () -> new UsernameNotFoundException("User " + username + " not found.")));
-    }
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(
+//                username -> (UserDetails) userDAO.findByUsername(username)
+//                        .orElseThrow(
+//                                () -> new UsernameNotFoundException("User " + username + " not found.")));
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
