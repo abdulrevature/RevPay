@@ -1,4 +1,4 @@
-package com.revature.businesscard;
+package com.revature.businessCard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

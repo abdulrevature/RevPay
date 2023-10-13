@@ -1,10 +1,10 @@
-package com.revature.personalcard.Service;
+package com.revature.personalCard.service;
 
-import com.revature.personalcard.model.PersonalCard;
-import com.revature.personalcard.util.CardUtils;
+import com.revature.personalCard.model.PersonalCard;
+import com.revature.personalCard.util.CardUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.revature.personalcard.dao.PersonalCardDAO;
+import com.revature.personalCard.dao.PersonalCardDAO;
 
 import java.util.Random;
 

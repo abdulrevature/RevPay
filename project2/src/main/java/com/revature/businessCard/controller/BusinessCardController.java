@@ -1,7 +1,7 @@
-package com.revature.businesscard.controller;
+package com.revature.businessCard.controller;
 
-import com.revature.businesscard.model.BusinessCard;
-import com.revature.businesscard.service.BusinessCardService;
+import com.revature.businessCard.model.BusinessCard;
+import com.revature.businessCard.service.BusinessCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
