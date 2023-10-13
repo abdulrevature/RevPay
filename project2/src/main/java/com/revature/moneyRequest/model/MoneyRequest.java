@@ -1,4 +1,4 @@
-package com.revature.MoneyRequest.model;
+package com.revature.moneyRequest.model;
 
 import org.springframework.stereotype.Component;
 
