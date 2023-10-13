@@ -1,4 +1,4 @@
-package com.revature.personalcard.util;
+package com.revature.personalCard.util;
 
 import java.util.Random;
 

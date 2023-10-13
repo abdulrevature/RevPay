@@ -1,4 +1,4 @@
-package com.revature.personalcard.controller;
+package com.revature.personalCard.controller;
 
 public class PersonalCardController {
 }

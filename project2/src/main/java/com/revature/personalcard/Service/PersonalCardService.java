@@ -1,4 +1,4 @@
-package com.revature.personalcard.Service;
+package com.revature.personalCard.Service;
 
 public class PersonalCardService {
 }
