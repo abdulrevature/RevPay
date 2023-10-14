@@ -17,11 +17,11 @@ public class PersonalCardService {
     public PersonalCardService(PersonalCardDAO personalCardDao) {this.personalCardDao = personalCardDao; }
 
     // This generates card numbers.
-    public PersonalCard createNewCard(
+    public static PersonalCard createNewCard(
             String cardType,
-            String FirstName,
-            String LastName,
-            int pin,
+            String firstName,
+            String lastName,
+            short pin,
             int billingZip) {
 
         // Instantiate the personal card model.
@@ -33,7 +33,7 @@ public class PersonalCardService {
 
         // Ideally this will take in information from the current user session at the controller layer. This merely
         // standardizes the data so that it is input into the database
-        String cardholderName = FirstName + " " + LastName;
+        String cardholderName = firstName + " " + lastName;
 
         // Card Generation
         // This will generate a card number which satisfies the Luhn algorithm

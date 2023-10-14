@@ -19,9 +19,9 @@ public class PersonalCard {
     @Column private long cardNumber;
     @Column private String cardType;
     @Column private short expDate;
-    @Column private int cvv;
+    @Column private short cvv;
     @Column private int billingZip;
-    @Column private int pin;
+    @Column private short pin;
     @Column private String cardName;
 
     // Constructors
@@ -29,14 +29,14 @@ public class PersonalCard {
 
     public PersonalCard(long id) { this.id = id; }
 
-    public PersonalCard(long cardNumber, short expDate, int cvv, int billingZip) {
+    public PersonalCard(long cardNumber, short expDate, short cvv, int billingZip) {
         this.cardNumber = cardNumber;
         this.expDate = expDate;
         this.cvv = cvv;
         this.billingZip = billingZip;
     }
 
-    public PersonalCard(String cardholderName, long cardNumber, short expDate, int cvv, int billingZip) {
+    public PersonalCard(String cardholderName, long cardNumber, short expDate, short cvv, int billingZip) {
         this.cardholderName = cardholderName;
         this.cardNumber = cardNumber;
         this.expDate = expDate;
@@ -51,9 +51,9 @@ public class PersonalCard {
             long cardNumber,
             String cardType,
             short expDate,
-            int cvv,
+            short cvv,
             int billingZip,
-            int pin,
+            short pin,
             String cardName
     ) {
         this.id = id;
@@ -75,9 +75,9 @@ public class PersonalCard {
                         long cardNumber,
                         String cardType,
                         short expDate,
-                        int cvv,
+                        short cvv,
                         int billingZip,
-                        int pin,
+                        short pin,
                         String cardName) {
         this.id = id;
         this.userId = userId;
@@ -113,9 +113,9 @@ public class PersonalCard {
     public void setCardNumber(long cardNumber) { this.cardNumber = cardNumber; }
     public void setCardType(String cardType) { this.cardType = cardType; }
     public void setExpDate(short expDate) { this.expDate = expDate; }
-    public void setCvv(int cvv) { this.cvv = cvv; }
+    public void setCvv(short cvv) { this.cvv = cvv; }
     public void setBillingZip(int billingZip) { this.billingZip = billingZip; }
-    public void setPin(int pin) { this.pin = pin; }
+    public void setPin(short pin) { this.pin = pin; }
     public void setUserId(long userId) { this.userId = userId; }
     public void setCardName(String cardName) { this.cardName = cardName; }
 }
