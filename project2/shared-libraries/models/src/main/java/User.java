@@ -1,6 +1,3 @@
-package com.revature.user.model;
-
-
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;

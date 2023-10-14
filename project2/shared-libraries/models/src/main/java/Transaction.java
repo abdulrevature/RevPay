@@ -1,8 +1,5 @@
-package com.revature.transaction.model;
+import com.revature.model.MoneyRequest;
 
-import com.revature.moneyRequest.model.MoneyRequest;
-
-import net.bytebuddy.asm.Advice;
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.time.LocalDateTime;

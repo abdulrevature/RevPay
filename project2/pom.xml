@@ -11,9 +11,25 @@
 	<groupId>com.revature</groupId>
 	<artifactId>project2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>project2</name>
+    <packaging>pom</packaging>
+    <name>project2</name>
 	<description>Demo project for Spring Boot</description>
-	<properties>
+    <modules>
+		<module>shared-libraries/daos</module>
+		<module>shared-libraries/models</module>
+        <module>user/createuser</module>
+		<module>user/login</module>
+		<module>user/sendmoney</module>
+		<module>user/requestmoney</module>
+		<module>user/sendmoney</module>
+		<module>user/addpersonalcard</module>
+		<module>user/viewtransactions</module>
+		<module>business/addbusinesscard</module>
+        <module>business/applyforloan</module>
+		<module>business/acceptpayment</module>
+		<module>business/sendinvoice</module>
+	</modules>
+    <properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
 	</properties>

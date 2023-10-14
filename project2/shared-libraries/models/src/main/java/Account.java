@@ -1,5 +1,3 @@
-package com.revature.account.model;
-
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;

@@ -1,6 +1,6 @@
 package com.revature.personalCard.controller;
 
-import com.revature.personalCard.model.PersonalCard;
+import com.revature.model.PersonalCard;
 import com.revature.personalCard.service.PersonalCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

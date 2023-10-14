@@ -1,6 +1,6 @@
 package com.revature.businessCard.controller;
 
-import com.revature.businessCard.model.BusinessCard;
+import com.revature.model.BusinessCard;
 import com.revature.businessCard.service.BusinessCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

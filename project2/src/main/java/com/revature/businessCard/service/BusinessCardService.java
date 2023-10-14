@@ -1,13 +1,10 @@
 package com.revature.businessCard.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.businessCard.dao.BusinessCardDAO;
-import com.revature.businessCard.model.BusinessCard;
+import com.revature.dao.BusinessCardDAO;
+import com.revature.model.BusinessCard;
 import com.revature.personalCard.util.CardUtils;
 
 @Service

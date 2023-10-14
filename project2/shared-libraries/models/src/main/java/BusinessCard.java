@@ -1,5 +1,3 @@
-package com.revature.businessCard.model;
-
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
 

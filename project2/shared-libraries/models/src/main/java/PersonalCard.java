@@ -1,5 +1,3 @@
-package com.revature.personalCard.model;
-
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
 

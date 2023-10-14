@@ -1,5 +1,3 @@
-package com.revature.moneyRequest.model;
-
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
