@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.businessCard.dao.BusinessCardDAO;
 import com.revature.businessCard.model.BusinessCard;
+import com.revature.personalCard.util.CardUtils;
 
 @Service
 public class BusinessCardService {
@@ -23,22 +24,33 @@ public class BusinessCardService {
         String cardholderName,
         long cardNumber,
         String cardType,
-        int expDate,
         int cvv,
         int billingZip,
-        int pin,
-        String cardName
+        int pin
+        
     ) {
         BusinessCard newCard = new BusinessCard();
+          CardUtils cardUtils = new CardUtils();
+
+        long ccNumber = cardUtils.generateCardNumber();
+        short expDate = cardUtils.generateExpDate();
         //setting the attribute to the new card
+
+        if (ccNumber != newCard.getCardNumber()) {
+            newCard.setCardNumber(ccNumber);
+        } else {
+            while (ccNumber == newCard.getCardNumber()) {
+                // If the card number exists, rerun cardUtils until such a time that a match can't be found.
+                ccNumber = cardUtils.generateCardNumber();
+            }
+        }
         newCard.setCardholderName(cardholderName);
-        newCard.setCardNumber(cardNumber);
         newCard.setCardType(cardType);
         newCard.setExpDate(expDate);
-        newCard.setCvv(cvv);
+        newCard.setCvv(cardUtils.generateCVV(ccNumber, expDate));
         newCard.setBillingZip(billingZip);
         newCard.setPin(pin);
-        newCard.setCardName(cardName);
+        
 
             //saving the card
         BusinessCard savedCard = businessCardDao.save(newCard);
@@ -46,32 +58,5 @@ public class BusinessCardService {
         return savedCard;
     }
 
-    public List<BusinessCard> getAllBusinessCards() {
-        return businessCardDao.findAll();
-    }
-
-    public BusinessCard getBusinessCardById(long id) {
-        Optional<BusinessCard> optionalBusinessCard = businessCardDao.findById((int)id);
-        return optionalBusinessCard.orElseThrow(() -> new BusinessCardNotFoundException(id));
-    }
-
-    public BusinessCard updateBusinessCard(long id, BusinessCard businessCard) {
-        Optional<BusinessCard> existingBusinessCard = businessCardDao.findById((int)id);
-        
-        if (existingBusinessCard.isPresent()) {
-            businessCard.setId(id);
-            return businessCardDao.save(businessCard);
-        } else {
-            throw new BusinessCardNotFoundException(id);
-        }
-
-    }
-
-        public void deleteBusinessCard(long id) {
-            if (businessCardDao.existsById((int)id)) {
-                businessCardDao.deleteById((int)id);
-            } else {
-                throw new BusinessCardNotFoundException(id);
-            }
-    }
+   
 }
