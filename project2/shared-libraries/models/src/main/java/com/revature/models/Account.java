@@ -1,3 +1,5 @@
+package com.revature.models;
+
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -6,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "business")
 @Component
 public class Account {
-    //NOTE: "Account" represents "Business" in the ERD
+    //NOTE: "com.revature.models.Account" represents "Business" in the ERD
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -94,7 +96,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
+        return "com.revature.models.Account{" +
                 "businessId=" + businessId +
                 ", name='" + name + '\'' +
                 ", balance=" + balance +

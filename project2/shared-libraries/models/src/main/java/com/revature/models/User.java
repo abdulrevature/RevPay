@@ -1,3 +1,5 @@
+package com.revature.models;
+
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -126,7 +128,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "com.revature.models.User{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

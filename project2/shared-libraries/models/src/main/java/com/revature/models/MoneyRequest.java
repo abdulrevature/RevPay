@@ -1,3 +1,5 @@
+package com.revature.models;
+
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -92,7 +94,7 @@ public class MoneyRequest {
 
     @Override
     public String toString() {
-        return "MoneyRequest [request_id=" + request_id + ", to_user_id=" + to_user_id + ", from_user_id="
+        return "com.revature.models.MoneyRequest [request_id=" + request_id + ", to_user_id=" + to_user_id + ", from_user_id="
                 + from_user_id + ", request_amount=" + request_amount + ", request_status=" + request_status + "]";
     }
 
