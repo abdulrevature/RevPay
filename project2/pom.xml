@@ -15,8 +15,9 @@
     <name>project2</name>
 	<description>Demo project for Spring Boot</description>
     <modules>
-		<module>shared-libraries/daos</module>
+		<module>shared-libraries/dao</module>
 		<module>shared-libraries/models</module>
+		<module>shared-libraries/utils</module>
         <module>user/createuser</module>
 		<module>user/login</module>
 		<module>user/sendmoney</module>
@@ -28,7 +29,8 @@
         <module>business/applyforloan</module>
 		<module>business/acceptpayment</module>
 		<module>business/sendinvoice</module>
-	</modules>
+        <module>shared-libraries/utils</module>
+    </modules>
     <properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
