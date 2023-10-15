@@ -1,14 +1,11 @@
 package com.revature.personalCard.controller;
-
-<<<<<<< Updated upstream
-public class PersonalCardController {
-=======
 import com.revature.personalCard.model.PersonalCard;
 import com.revature.personalCard.service.PersonalCardService;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/")
@@ -33,5 +30,4 @@ public class PersonalCardController {
 
         return ResponseEntity.ok(PersonalCardService.createNewCard("Debit", firstName, lastName, (short) personalCard.getPin(), personalCard.getBillingZip()));
     }
->>>>>>> Stashed changes
 }
