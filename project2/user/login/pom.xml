@@ -20,13 +20,8 @@
     <dependencies>
         <dependency>
             <groupId>com.revature</groupId>
-            <artifactId>models</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.revature</groupId>
-            <artifactId>daos</artifactId>
-            <version>1.0.0</version>
+            <artifactId>persistentdata</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

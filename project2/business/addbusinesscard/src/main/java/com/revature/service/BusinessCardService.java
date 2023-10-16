@@ -3,7 +3,7 @@ package com.revature.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.dao.BusinessCardDAO;
+import com.revature.daos.BusinessCardDAO;
 import com.revature.model.BusinessCard;
 import com.revature.personalCard.util.CardUtils;
 

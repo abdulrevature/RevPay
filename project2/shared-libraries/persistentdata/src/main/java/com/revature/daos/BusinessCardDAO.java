@@ -1,6 +1,6 @@
-package com.revature.dao;
+package com.revature.daos;
 
-import com.revature.model.BusinessCard;
+import com.revature.models.BusinessCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

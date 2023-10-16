@@ -1,45 +1,41 @@
 package com.revature.service;
 
-import com.revature.model.PersonalCard;
-import com.revature.personalCard.util.CardUtils;
+
+import com.revature.dtos.PersonalCardDTO;
+import com.revature.utils.CardUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.revature.dao.PersonalCardDAO;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Random;
 
 @Service
 public class PersonalCardService {
 
-    private PersonalCardDAO personalCardDao;
+    private final RestTemplate restTemplate;
+    private final String daoBaseUrl; // Base URL of the DAO service
 
-    @Autowired
-    public PersonalCardService(PersonalCardDAO personalCardDao) {this.personalCardDao = personalCardDao; }
+    public PersonalCardService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+        this.daoBaseUrl = "[replace with actual URL]"; // Set the base URL of the DAO service
+    }
 
-    // This generates card numbers.
-    public PersonalCard createNewCard(
-            String cardType,
-            String FirstName,
-            String LastName,
-            int pin,
-            int billingZip) {
+    public void createCard(String cardType, String firstName, String lastName, short pin, int billingZip) {
 
-        // Instantiate the personal card model.
-        PersonalCard newCard = new PersonalCard();
         CardUtils cardUtils = new CardUtils();
+        PersonalCardDTO newCard = new PersonalCardDTO();
 
+        // Card Generation
+        // This will generate a card number that also satisfies the Luhn algorithm.
         long ccNumber = cardUtils.generateCardNumber();
+
+        // Expiry Date generation.
         short expDate = cardUtils.generateExpDate();
 
         // Ideally this will take in information from the current user session at the controller layer. This merely
         // standardizes the data so that it is input into the database
-        String cardholderName = FirstName + " " + LastName;
+        String cardholderName = firstName + " " + lastName;
 
-        // Card Generation
-        // This will generate a card number which satisfies the Luhn algorithm
-        Random random = new Random();
-
-        newCard.setCardType(cardType);
 
         // Verify Card Number doesn't exit before editing.
         if (ccNumber != newCard.getCardNumber()) {
@@ -51,11 +47,25 @@ public class PersonalCardService {
             }
         }
 
+        newCard.setCardType(cardType);
+        newCard.setCardHolderName(cardholderName);
+        newCard.setCardNumber(ccNumber);
         newCard.setExpDate(expDate);
-        newCard.setCvv(cardUtils.generateCVV(ccNumber, expDate));
+        newCard.setCvv((short) cardUtils.generateCVV(ccNumber, expDate));
         newCard.setPin(pin);
         newCard.setBillingZip(billingZip);
 
-        return newCard;
+        PersonalCardDTO request = new PersonalCardDTO(
+                newCard.getCardHolderName(),
+                newCard.getCardType(),
+                newCard.getCardNumber(),
+                newCard.getPin(),
+                newCard.getCvv(),
+                newCard.getBillingZip(),
+                newCard.getExpDate());
+
+        String createCardUrl = daoBaseUrl + "/createPersonalCard";
+
+        restTemplate.postForObject(createCardUrl, request, Void.class);
     }
 }
