@@ -1,7 +1,7 @@
 package com.revature.service;
 
 import com.revature.model.PersonalCard;
-import com.revature.personalCard.util.CardUtils;
+import com.revature.util.CardUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.revature.dao.PersonalCardDAO;
@@ -17,7 +17,7 @@ public class PersonalCardService {
     public PersonalCardService(PersonalCardDAO personalCardDao) {this.personalCardDao = personalCardDao; }
 
     // This generates card numbers.
-    public PersonalCard createNewCard(
+    public static PersonalCard createNewCard(
             String cardType,
             String FirstName,
             String LastName,
