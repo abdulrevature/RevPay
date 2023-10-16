@@ -1,7 +1,7 @@
-package com.revature.dao;
+package com.revature.daos;
 
-import com.revature.model.BusinessCard;
+import com.revature.models.PersonalCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PersonalCardDAO extends JpaRepository<BusinessCard, Integer> {
+public interface PersonalCardDAO extends JpaRepository<PersonalCard, Integer> {
 }

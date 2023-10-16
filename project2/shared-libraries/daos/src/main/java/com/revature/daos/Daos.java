@@ -1,11 +1,10 @@
 package com.revature.daos;
 
-import org.springframework.boot.SpringBootApplication;
-import org.springframework.boot.autoconfigure.SpringApplication;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Daos {
-
-    @SpringBootApplication
     public static void main(String[] args) {
         SpringApplication.run(Daos.class, args);
     }
