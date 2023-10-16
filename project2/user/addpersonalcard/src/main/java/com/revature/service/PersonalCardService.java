@@ -1,8 +1,7 @@
 package com.revature.service;
 
-
-import com.revature.dtos.PersonalCardDTO;
-import com.revature.utils.CardUtils;
+import com.revature.model.PersonalCard;
+import com.revature.util.CardUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -20,7 +19,13 @@ public class PersonalCardService {
         this.daoBaseUrl = "[replace with actual URL]"; // Set the base URL of the DAO service
     }
 
-    public void createCard(String cardType, String firstName, String lastName, short pin, int billingZip) {
+    // This generates card numbers.
+    public static PersonalCard createNewCard(
+            String cardType,
+            String FirstName,
+            String LastName,
+            int pin,
+            int billingZip) {
 
         CardUtils cardUtils = new CardUtils();
         PersonalCardDTO newCard = new PersonalCardDTO();
