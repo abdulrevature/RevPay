@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:project2/shared-libraries/persistentdata/src/main/java/com/revature/models/Account.java
 package com.revature.models;
-========
-package com.revature.model;
->>>>>>>> main:project2/shared-libraries/models/src/main/java/com/revature/model/Account.java
 
 import org.springframework.stereotype.Component;
 

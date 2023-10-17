@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:project2/shared-libraries/persistentdata/src/main/java/com/revature/models/MoneyRequest.java
 package com.revature.models;
-========
-package com.revature.model;
->>>>>>>> main:project2/shared-libraries/models/src/main/java/com/revature/model/MoneyRequest.java
 
 import org.springframework.stereotype.Component;
 
@@ -15,18 +11,15 @@ public class MoneyRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long request_id;
+    private long requestId;
 
-    /*
     @ManyToOne
-    @JoinColumn(name = "userId") */
-    private long to_user_id;
+    @JoinColumn(name = "to_user_id")
+    private User toUser;
 
-    /*
     @ManyToOne
-    @JoinColumn(name = "userId")
-     */
-    private long from_user_id;
+    @JoinColumn(name = "from_user_id")
+    private User fromUser;
 
     @Column(nullable = false)
     private int request_amount;
@@ -34,50 +27,31 @@ public class MoneyRequest {
     @Column(nullable = false)
     private String request_status;
 
-
     public MoneyRequest() {
-        super();
     }
 
-    public MoneyRequest(long request_id, long to_user_id, long from_user_id, int request_amount,
-                        String request_status) {
-        this.request_id = request_id;
-        this.to_user_id = to_user_id;
-        this.from_user_id = from_user_id;
+    public MoneyRequest(long requestId, User toUser, User fromUser, int request_amount, String request_status) {
+        this.requestId = requestId;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
         this.request_amount = request_amount;
         this.request_status = request_status;
     }
 
-    public MoneyRequest(long request_id, long to_user_id, long from_user_id, int request_amount) {
-        this.request_id = request_id;
-        this.to_user_id = to_user_id;
-        this.from_user_id = from_user_id;
+    public MoneyRequest(User toUser, User fromUser, int request_amount, String request_status) {
+        this.toUser = toUser;
+        this.fromUser = fromUser;
         this.request_amount = request_amount;
+        this.request_status = request_status;
     }
 
 
-    public long getRequest_id() {
-        return request_id;
+    public long getRequestId() {
+        return requestId;
     }
 
-    public void setRequest_id(long request_id) {
-        this.request_id = request_id;
-    }
-
-    public long getTo_user_id() {
-        return to_user_id;
-    }
-
-    public void setTo_user_id(long to_user_id) {
-        this.to_user_id = to_user_id;
-    }
-
-    public long getFrom_user_id() {
-        return from_user_id;
-    }
-
-    public void setFrom_user_id(long from_user_id) {
-        this.from_user_id = from_user_id;
+    public void setRequestId(long requestId) {
+        this.requestId = requestId;
     }
 
     public int getRequest_amount() {
@@ -96,11 +70,20 @@ public class MoneyRequest {
         this.request_status = request_status;
     }
 
-    @Override
-    public String toString() {
-        return "com.revature.models.MoneyRequest [request_id=" + request_id + ", to_user_id=" + to_user_id + ", from_user_id="
-                + from_user_id + ", request_amount=" + request_amount + ", request_status=" + request_status + "]";
+
+    public User getToUser() {
+        return toUser;
     }
 
+    public void setToUser(User toUser) {
+        this.toUser = toUser;
+    }
 
+    public User getFromUser() {
+        return fromUser;
+    }
+
+    public void setFromUser(User fromUser) {
+        this.fromUser = fromUser;
+    }
 }

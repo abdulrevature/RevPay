@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:project2/shared-libraries/persistentdata/src/main/java/com/revature/models/Transaction.java
 package com.revature.models;
-========
-package com.revature.model;
->>>>>>>> main:project2/shared-libraries/models/src/main/java/com/revature/model/Transaction.java
 
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
@@ -14,18 +10,55 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @OneToOne
     @JoinColumn(name = "money_request_id")
     private MoneyRequest moneyRequest;
-    private String description;
-    private LocalDateTime dateTime;
-    private int amount;
-    private String memo;
 
-    public Transaction(MoneyRequest moneyRequest, String description, int amount, String memo) {
+    private String description;
+
+    private LocalDateTime dateTime;
+
+    private int amount;
+
+    @ManyToOne
+    @JoinColumn(name = "to_user_id")
+    private User toUser;
+
+    @ManyToOne
+    @JoinColumn(name = "from_user_id")
+    private User fromUser;
+
+    public Transaction(long id, MoneyRequest moneyRequest, String description, int amount, User toUser, User fromUser) {
+        this.id = id;
         this.moneyRequest = moneyRequest;
         this.description = description;
         this.amount = amount;
-        this.memo = memo;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
+
+    public Transaction(MoneyRequest moneyRequest, String description, int amount, User toUser, User fromUser) {
+        this.moneyRequest = moneyRequest;
+        this.description = description;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
+
+    public Transaction(String description, int amount, User toUser, User fromUser) {
+        this.description = description;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
+
+    public Transaction(long id, String description, int amount, User toUser, User fromUser) {
+        this.id = id;
+        this.description = description;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
     }
 
 
@@ -51,14 +84,6 @@ public class Transaction {
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public String getMemo() {
-        return memo;
-    }
-
-    public void setMemo(String memo) {
-        this.memo = memo;
     }
 
     public long getId() {
