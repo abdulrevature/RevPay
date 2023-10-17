@@ -10,7 +10,7 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @JoinColumn(name = "money_request_id")
+    @JoinColumn(name = "request_id")
     private MoneyRequest moneyRequest;
     private String description;
     private LocalDateTime dateTime;

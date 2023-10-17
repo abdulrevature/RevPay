@@ -1,7 +1,6 @@
 package com.revature;
 
 import com.revature.models.PersonalCard;
-import com.revature.models.BusinessCard;
 import com.revature.service.PersonalCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
