@@ -12,8 +12,12 @@ public class PersonalCard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JoinColumn(name="userId") private long userId;
-    @JoinColumn(name="accountId") private long accountId;
+    @JoinColumn(name="userId", nullable = true)
+    @ManyToOne
+    private User userId;
+    @JoinColumn(name="accountId", nullable = true)
+    @ManyToOne private Account accountId;
+
     @Column private String cardholderName;
     @Column private long cardNumber;
     @Column private String cardType;
@@ -45,7 +49,7 @@ public class PersonalCard {
 
     public PersonalCard(
             long id,
-            long accountId,
+            Account accountId,
             String cardholderName,
             long cardNumber,
             String cardType,
@@ -68,8 +72,8 @@ public class PersonalCard {
     }
 
     public PersonalCard(long id,
-                        long userId,
-                        long accountId,
+                        User userId,
+                        Account accountId,
                         String cardholderName,
                         long cardNumber,
                         String cardType,
@@ -94,7 +98,7 @@ public class PersonalCard {
     // Getters and Setters
     // --- Getters
     public long getId() { return id; }
-    public long getAccountId() { return accountId; }
+    public Account getAccountId() { return accountId; }
     public String getCardholderName() { return cardholderName; }
     public long getCardNumber() { return cardNumber; }
     public String getCardType() { return cardType; }
@@ -102,12 +106,12 @@ public class PersonalCard {
     public int getCvv() { return cvv; }
     public int getBillingZip() { return billingZip; }
     public int getPin() { return pin; }
-    public long getUserId() { return userId; }
+    public User getUserId() { return userId; }
     public String getCardName() { return cardName; }
 
     // --- Setters
     public void setId(long id) { this.id = id; }
-    public void setAccountId(long accountId) { this.accountId = accountId; }
+    public void setAccountId(Account accountId) { this.accountId = accountId; }
     public void setCardholderName(String cardholderName) { this.cardholderName = cardholderName; }
     public void setCardNumber(long cardNumber) { this.cardNumber = cardNumber; }
     public void setCardType(String cardType) { this.cardType = cardType; }
@@ -115,6 +119,6 @@ public class PersonalCard {
     public void setCvv(int cvv) { this.cvv = cvv; }
     public void setBillingZip(int billingZip) { this.billingZip = billingZip; }
     public void setPin(int pin) { this.pin = pin; }
-    public void setUserId(long userId) { this.userId = userId; }
+    public void setUserId(User userId) { this.userId = userId; }
     public void setCardName(String cardName) { this.cardName = cardName; }
 }
