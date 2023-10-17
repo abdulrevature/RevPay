@@ -15,8 +15,7 @@
     <name>project2</name>
 	<description>Demo project for Spring Boot</description>
     <modules>
-		<module>shared-libraries/dao</module>
-		<module>shared-libraries/models</module>
+		<module>shared-libraries/persistentdata</module>
 		<module>shared-libraries/utils</module>
         <module>user/createuser</module>
 		<module>user/login</module>
@@ -29,8 +28,7 @@
         <module>business/applyforloan</module>
 		<module>business/acceptpayment</module>
 		<module>business/sendinvoice</module>
-        <module>shared-libraries/utils</module>
-    </modules>
+	</modules>
     <properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
@@ -126,6 +124,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>repackage</id>
+						<configuration>
+							<classifier>exec</classifier>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
