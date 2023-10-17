@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:project2/shared-libraries/persistentdata/src/main/java/com/revature/models/BusinessCard.java
 package com.revature.models;
-========
-package com.revature.model;
->>>>>>>> main:project2/shared-libraries/models/src/main/java/com/revature/model/BusinessCard.java
 
 import org.springframework.stereotype.Component;
 import javax.persistence.*;
@@ -15,7 +11,8 @@ public class BusinessCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @JoinColumn(name="accountId") private long accountId;
+    @JoinColumn(name="business_id")
+    @ManyToOne private Account accountId;
     @Column
     private String cardholderName;
     @Column private long cardNumber;
@@ -50,7 +47,7 @@ public class BusinessCard {
 
     public BusinessCard(
             long id,
-            long accountId,
+            Account accountId,
             String cardholderName,
             long cardNumber,
             String cardType,
@@ -74,7 +71,7 @@ public class BusinessCard {
 
     // --- Getters
     public long getId() { return id; }
-    public long getAccountId() { return accountId; }
+    public Account getAccountId() { return accountId; }
     public String getCardholderName() { return cardholderName; }
     public long getCardNumber() { return cardNumber; }
     public String getCardType() { return cardType; }
@@ -89,7 +86,7 @@ public class BusinessCard {
     public void setId(long id) {
         this.id = id;
     }
-    public void setAccountId(long accountId) {
+    public void setAccountId(Account accountId) {
         this.accountId = accountId;
     }
     public void setCardholderName(String cardholderName) {

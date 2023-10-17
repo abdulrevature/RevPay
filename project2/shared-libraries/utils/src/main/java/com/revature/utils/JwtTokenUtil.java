@@ -1,6 +1,6 @@
-package com.revature.util;
+package com.revature.utils;
 
-import com.revature.model.User;
+import com.revature.models.User;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

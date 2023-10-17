@@ -1,4 +1,4 @@
-package com.revature.util;
+package com.revature.utils;
 
 //import com.revature.daos.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;

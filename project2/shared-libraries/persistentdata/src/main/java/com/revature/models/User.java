@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:project2/shared-libraries/persistentdata/src/main/java/com/revature/models/User.java
 package com.revature.models;
-========
-package com.revature.model;
->>>>>>>> main:project2/shared-libraries/models/src/main/java/com/revature/model/User.java
 
 import org.springframework.stereotype.Component;
 
@@ -37,15 +33,15 @@ public class User {
     private String phone;
 
 
-    /*
+
     @ManyToOne
-    @JoinColumn */
-    private long busId;
+    @JoinColumn(name = "account_id")
+    private Account busId;
 
 
     public User(){}
 
-    public User(long userId, String username, String password, String firstName, String lastName, String email, String phone, long busId) {
+    public User(long userId, String username, String password, String firstName, String lastName, String email, String phone, Account busId) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -122,11 +118,11 @@ public class User {
         this.phone = phone;
     }
 
-    public long getBusId() {
+    public Account getBusId() {
         return busId;
     }
 
-    public void setBusId(long busId) {
+    public void setBusId(Account busId) {
         this.busId = busId;
     }
 
