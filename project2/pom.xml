@@ -17,16 +17,17 @@
     <modules>
 		<module>shared-libraries/persistentdata</module>
 		<module>shared-libraries/utils</module>
-        <module>user/createuser</module>
+		<module>user/addpersonalcard</module>
+       <!-- <module>user/createuser</module>
 		<module>user/login</module>
 		<module>user/sendmoney</module>
 		<module>user/requestmoney</module>
-		<module>user/addpersonalcard</module>
+
 		<module>user/viewtransactions</module>
 		<module>business/addbusinesscard</module>
         <module>business/applyforloan</module>
 		<module>business/acceptpayment</module>
-		<module>business/sendinvoice</module>
+		<module>business/sendinvoice</module> !-->
 	</modules>
     <properties>
 		<java.version>11</java.version>

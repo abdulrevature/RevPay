@@ -1,16 +1,13 @@
 package com.revature.service;
 
-import com.revature.model.PersonalCard;
-import com.revature.util.CardUtils;
+import com.revature.daos.PersonalCardDAO;
+import com.revature.models.PersonalCard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.Random;
 
 @Service
 public class PersonalCardService {
-
+    /*
     private final RestTemplate restTemplate;
     private final String daoBaseUrl; // Base URL of the DAO service
 
@@ -18,9 +15,23 @@ public class PersonalCardService {
         this.restTemplate = restTemplate;
         this.daoBaseUrl = "[replace with actual URL]"; // Set the base URL of the DAO service
     }
-
+     */
     // This generates card numbers.
-    public static PersonalCard createNewCard(
+    @Autowired
+    private final PersonalCardDAO PCD;
+
+    public PersonalCardService(PersonalCardDAO pcd){
+
+        PCD = pcd;
+    }
+
+
+    public void addCreditCard(PersonalCard p){
+        PCD.save(p);
+    }
+
+   /*
+    public PersonalCard createNewCard(
             String cardType,
             String FirstName,
             String LastName,
@@ -39,7 +50,7 @@ public class PersonalCardService {
 
         // Ideally this will take in information from the current user session at the controller layer. This merely
         // standardizes the data so that it is input into the database
-        String cardholderName = firstName + " " + lastName;
+        String cardholderName = FirstName + " " + LastName;
 
 
         // Verify Card Number doesn't exit before editing.
@@ -57,7 +68,7 @@ public class PersonalCardService {
         newCard.setCardNumber(ccNumber);
         newCard.setExpDate(expDate);
         newCard.setCvv((short) cardUtils.generateCVV(ccNumber, expDate));
-        newCard.setPin(pin);
+        newCard.setPin((short) pin);
         newCard.setBillingZip(billingZip);
 
         PersonalCardDTO request = new PersonalCardDTO(
@@ -72,5 +83,8 @@ public class PersonalCardService {
         String createCardUrl = daoBaseUrl + "/createPersonalCard";
 
         restTemplate.postForObject(createCardUrl, request, Void.class);
+        return newCard;
     }
+
+    */
 }
