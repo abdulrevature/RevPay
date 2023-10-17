@@ -29,6 +29,10 @@ public class Account {
     @Column(nullable = false)
     private String password;
 
+
+    public Account(){
+
+    }
     public Account(long businessId, String name, double balance, String email, String username, String password) {
         this.businessId = businessId;
         this.name = name;

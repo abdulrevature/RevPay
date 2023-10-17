@@ -12,16 +12,14 @@ public class MoneyRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long request_id;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "userId") */
-    private long to_user_id;
 
-    /*
     @ManyToOne
-    @JoinColumn(name = "userId")
-     */
-    private long from_user_id;
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private User to_user_id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private User from_user_id;
 
     @Column(nullable = false)
     private int request_amount;
@@ -31,10 +29,10 @@ public class MoneyRequest {
 
 
     public MoneyRequest() {
-        super();
+
     }
 
-    public MoneyRequest(long request_id, long to_user_id, long from_user_id, int request_amount,
+    public MoneyRequest(long request_id, User to_user_id, User from_user_id, int request_amount,
                         String request_status) {
         this.request_id = request_id;
         this.to_user_id = to_user_id;
@@ -43,7 +41,7 @@ public class MoneyRequest {
         this.request_status = request_status;
     }
 
-    public MoneyRequest(long request_id, long to_user_id, long from_user_id, int request_amount) {
+    public MoneyRequest(long request_id, User to_user_id, User from_user_id, int request_amount) {
         this.request_id = request_id;
         this.to_user_id = to_user_id;
         this.from_user_id = from_user_id;
@@ -59,19 +57,19 @@ public class MoneyRequest {
         this.request_id = request_id;
     }
 
-    public long getTo_user_id() {
+    public User getTo_user_id() {
         return to_user_id;
     }
 
-    public void setTo_user_id(long to_user_id) {
+    public void setTo_user_id(User to_user_id) {
         this.to_user_id = to_user_id;
     }
 
-    public long getFrom_user_id() {
+    public User getFrom_user_id() {
         return from_user_id;
     }
 
-    public void setFrom_user_id(long from_user_id) {
+    public void setFrom_user_id(User from_user_id) {
         this.from_user_id = from_user_id;
     }
 

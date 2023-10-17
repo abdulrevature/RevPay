@@ -10,13 +10,18 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @JoinColumn(name = "request_id")
+    @JoinColumn
+    @OneToOne
     private MoneyRequest moneyRequest;
     private String description;
     private LocalDateTime dateTime;
     private int amount;
     private String memo;
 
+
+    public Transaction(){
+
+    }
     public Transaction(MoneyRequest moneyRequest, String description, int amount, String memo) {
         this.moneyRequest = moneyRequest;
         this.description = description;
