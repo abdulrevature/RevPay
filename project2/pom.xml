@@ -15,6 +15,7 @@
     <name>project2</name>
 	<description>Demo project for Spring Boot</description>
     <modules>
+		<module>shared-libraries/persistentdata</module>
 		<module>shared-libraries/utils</module>
         <module>user/createuser</module>
 		<module>user/login</module>
@@ -27,8 +28,6 @@
         <module>business/applyforloan</module>
 		<module>business/acceptpayment</module>
 		<module>business/sendinvoice</module>
-        <module>shared-libraries/utils</module>
-		<module>shared-library/persistentdata</module>
 	</modules>
     <properties>
 		<java.version>11</java.version>
