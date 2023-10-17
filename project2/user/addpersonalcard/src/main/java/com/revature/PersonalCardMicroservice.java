@@ -23,5 +23,4 @@ public class PersonalCardMicroservice {
         PersonalCard pc = PersonalCardService.createNewCard("Debit", "Testophiles", "Examundo", 123, 01234);
         return ResponseEntity.ok(pc);
     }
-
 }
