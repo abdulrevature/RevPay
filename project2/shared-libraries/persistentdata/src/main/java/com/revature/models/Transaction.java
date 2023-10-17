@@ -11,8 +11,8 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToOne
     @JoinColumn(name = "money_request_id")
+    @OneToOne
     private MoneyRequest moneyRequest;
 
     private String description;
@@ -59,6 +59,9 @@ public class Transaction {
         this.amount = amount;
         this.toUser = toUser;
         this.fromUser = fromUser;
+    }
+
+    public Transaction() {
     }
 
 

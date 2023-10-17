@@ -1,7 +1,6 @@
 package com.revature.models;
 
 import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,11 +13,11 @@ public class MoneyRequest {
     private long requestId;
 
     @ManyToOne
-    @JoinColumn(name = "to_user_id")
+    @JoinColumn(name = "to_user_id", insertable = false, updatable = false)
     private User toUser;
 
     @ManyToOne
-    @JoinColumn(name = "from_user_id")
+    @JoinColumn(name = "from_user_id", insertable = false, updatable = false)
     private User fromUser;
 
     @Column(nullable = false)

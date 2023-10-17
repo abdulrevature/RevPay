@@ -15,9 +15,7 @@ public class ViewTransactions {
     public static void main(String[] args) {
 //        SpringApplication.run(ViewTransactions.class, args);
         LinkedList<Transaction> transactions = new LinkedList<>();
-        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
-        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
-        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
+        transactions.add(new Transaction());
         System.out.println(transactions);
     }
 
@@ -39,9 +37,9 @@ public class ViewTransactions {
     @Bean //Remember, we need these functions to be "functional beans" to be noticed by lambda
     public Supplier<List<Transaction>> getAllTransactions(){
         LinkedList<Transaction> transactions = new LinkedList<>();
-        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
-        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
-        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
+//        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
+//        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
+//        transactions.add(new Transaction(new MoneyRequest(), "blah", 5));
 
         return () -> transactions; //remember, Java lambdas either need to take in some value(s) or just ()
 

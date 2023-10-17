@@ -1,4 +1,4 @@
-package com.revature.util;
+package com.revature.utils;
 
 import com.revature.models.User;
 import io.jsonwebtoken.*;
