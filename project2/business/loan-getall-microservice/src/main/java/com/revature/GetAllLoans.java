@@ -17,11 +17,11 @@ public class GetAllLoans {
     }
 
     @Autowired
-    GetAllLoansService createLoanService;
+    GetAllLoansService getAllLoansService;
 
     @Bean
     public Supplier<String> getAllLoan() {
-        List<Loan> loans = createLoanService.getAllLoans();
+        List<Loan> loans = getAllLoansService.getAllLoans();
         return loans::toString;
     }
 }
