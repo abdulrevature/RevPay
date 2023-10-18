@@ -1,9 +1,9 @@
 package com.revature.daos;
 
-import com.revature.models.Transaction;
+import com.revature.models.BusinessCard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TransactionDAO extends JpaRepository<Transaction, Long> {
+public interface AccountDAO extends JpaRepository<BusinessCard, Long> {
 }
