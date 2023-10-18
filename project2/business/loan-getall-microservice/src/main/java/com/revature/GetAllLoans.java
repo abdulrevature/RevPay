@@ -14,10 +14,16 @@ import java.util.function.Supplier;
 public class GetAllLoans {
     public static void main(String[] args) {
         SpringApplication.run(GetAllLoans.class, args);
+
     }
 
-    @Autowired
+
     GetAllLoansService getAllLoansService;
+
+    @Autowired
+    public GetAllLoans(GetAllLoansService getAllLoansService) {
+        this.getAllLoansService = getAllLoansService;
+    }
 
     @Bean
     public Supplier<String> getAllLoan() {
