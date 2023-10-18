@@ -22,7 +22,9 @@ public class JwtTokenUtil {
     //verify a given JWT. It returns true if the JWT is verified, or false otherwise.
     public boolean validateAccessToken(String token) {
         try {
-            Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token);
+            Jwts.parser()
+                    .setSigningKey(SECRET_KEY)
+                    .parseClaimsJws(token);
             return true;
         } catch (ExpiredJwtException ex) {
             LOGGER.error("JWT expired", ex.getMessage());
