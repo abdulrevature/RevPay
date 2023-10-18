@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "user")
 @Component
@@ -32,16 +31,10 @@ public class User {
     @Column
     private String phone;
 
+    public User() {
+    }
 
-
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account busId;
-
-
-    public User(){}
-
-    public User(long userId, String username, String password, String firstName, String lastName, String email, String phone, Account busId) {
+    public User(long userId, String username, String password, String firstName, String lastName, String email, String phone) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -49,7 +42,6 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
-        this.busId = busId;
     }
 
     public User(String username, String password, String firstName, String lastName, String email, String phone) {
@@ -118,14 +110,6 @@ public class User {
         this.phone = phone;
     }
 
-    public Account getBusId() {
-        return busId;
-    }
-
-    public void setBusId(Account busId) {
-        this.busId = busId;
-    }
-
     @Override
     public String toString() {
         return "com.revature.models.User{" +
@@ -136,7 +120,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", busId=" + busId +
                 '}';
     }
 }

@@ -1,37 +1,52 @@
 package com.revature.models;
 
 import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "personal_card")
 @Component
 public class PersonalCard {
 
-    // Fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long personalCardId;
 
-    @JoinColumn(name="userId", nullable = true)
     @ManyToOne
+    @JoinColumn(name = "user_Id")
     private User userId;
-    @JoinColumn(name="accountId", nullable = true)
-    @ManyToOne private Account accountId;
 
-    @Column private String cardholderName;
-    @Column private long cardNumber;
-    @Column private String cardType;
-    @Column private short expDate;
-    @Column private int cvv;
-    @Column private int billingZip;
-    @Column private int pin;
-    @Column private String cardName;
+    @Column(nullable = false, unique = true)
+    private String cardholderName;
 
-    // Constructors
-    public PersonalCard() {}
+    @Column(nullable = false, unique = true)
+    private long cardNumber;
 
-    public PersonalCard(long id) { this.id = id; }
+    @Column(nullable = false)
+    private String cardType;
+
+    @Column(nullable = false)
+    private int expDate;
+
+    @Column(nullable = false)
+    private int cvv;
+
+    @Column(nullable = false)
+    private int billingZip;
+
+    @Column(nullable = false)
+    private int pin;
+
+    @Column(nullable = false)
+    private String cardName;
+
+    public PersonalCard() {
+    }
+
+    public PersonalCard(long id) {
+        this.personalCardId = id;
+    }
 
     public PersonalCard(long cardNumber, short expDate, int cvv, int billingZip) {
         this.cardNumber = cardNumber;
@@ -50,7 +65,6 @@ public class PersonalCard {
 
     public PersonalCard(
             long id,
-            Account accountId,
             String cardholderName,
             long cardNumber,
             String cardType,
@@ -60,8 +74,7 @@ public class PersonalCard {
             int pin,
             String cardName
     ) {
-        this.id = id;
-        this.accountId = accountId;
+        this.personalCardId = id;
         this.cardholderName = cardholderName;
         this.cardNumber = cardNumber;
         this.cardType = cardType;
@@ -74,7 +87,6 @@ public class PersonalCard {
 
     public PersonalCard(long id,
                         User userId,
-                        Account accountId,
                         String cardholderName,
                         long cardNumber,
                         String cardType,
@@ -83,9 +95,8 @@ public class PersonalCard {
                         int billingZip,
                         int pin,
                         String cardName) {
-        this.id = id;
+        this.personalCardId = id;
         this.userId = userId;
-        this.accountId = accountId;
         this.cardholderName = cardholderName;
         this.cardNumber = cardNumber;
         this.cardType = cardType;
@@ -98,28 +109,100 @@ public class PersonalCard {
 
     // Getters and Setters
     // --- Getters
-    public long getId() { return id; }
-    public Account getAccountId() { return accountId; }
-    public String getCardholderName() { return cardholderName; }
-    public long getCardNumber() { return cardNumber; }
-    public String getCardType() { return cardType; }
-    public int getExpDate() { return expDate; }
-    public int getCvv() { return cvv; }
-    public int getBillingZip() { return billingZip; }
-    public int getPin() { return pin; }
-    public User getUserId() { return userId; }
-    public String getCardName() { return cardName; }
+    public long getId() {
+        return personalCardId;
+    }
+
+    public String getCardholderName() {
+        return cardholderName;
+    }
+
+    public long getCardNumber() {
+        return cardNumber;
+    }
+
+    public String getCardType() {
+        return cardType;
+    }
+
+    public int getExpDate() {
+        return expDate;
+    }
+
+    public int getCvv() {
+        return cvv;
+    }
+
+    public int getBillingZip() {
+        return billingZip;
+    }
+
+    public int getPin() {
+        return pin;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
 
     // --- Setters
-    public void setId(long id) { this.id = id; }
-    public void setAccountId(Account accountId) { this.accountId = accountId; }
-    public void setCardholderName(String cardholderName) { this.cardholderName = cardholderName; }
-    public void setCardNumber(long cardNumber) { this.cardNumber = cardNumber; }
-    public void setCardType(String cardType) { this.cardType = cardType; }
-    public void setExpDate(short expDate) { this.expDate = expDate; }
-    public void setCvv(int cvv) { this.cvv = cvv; }
-    public void setBillingZip(int billingZip) { this.billingZip = billingZip; }
-    public void setPin(int pin) { this.pin = pin; }
-    public void setUserId(User userId) { this.userId = userId; }
-    public void setCardName(String cardName) { this.cardName = cardName; }
+    public void setId(long id) {
+        this.personalCardId = id;
+    }
+
+    public void setCardholderName(String cardholderName) {
+        this.cardholderName = cardholderName;
+    }
+
+    public void setCardNumber(long cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
+    }
+
+    public void setExpDate(short expDate) {
+        this.expDate = expDate;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
+
+    public void setBillingZip(int billingZip) {
+        this.billingZip = billingZip;
+    }
+
+    public void setPin(int pin) {
+        this.pin = pin;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonalCard{" +
+                "personalCardId=" + personalCardId +
+                ", userId=" + userId +
+                ", cardholderName='" + cardholderName + '\'' +
+                ", cardNumber=" + cardNumber +
+                ", cardType='" + cardType + '\'' +
+                ", expDate=" + expDate +
+                ", cvv=" + cvv +
+                ", billingZip=" + billingZip +
+                ", pin=" + pin +
+                ", cardName='" + cardName + '\'' +
+                '}';
+    }
 }

@@ -7,8 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "business")
 @Component
-public class Account {
-    //NOTE: "com.revature.models.Account" represents "Business" in the ERD
+public class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,11 +28,10 @@ public class Account {
     @Column(nullable = false)
     private String password;
 
-
-    public Account(){
-
+    public Business() {
     }
-    public Account(long businessId, String name, double balance, String email, String username, String password) {
+
+    public Business(long businessId, String name, double balance, String email, String username, String password) {
         this.businessId = businessId;
         this.name = name;
         this.balance = balance;
@@ -42,7 +40,7 @@ public class Account {
         this.password = password;
     }
 
-    public Account(String name, double balance, String email, String username, String password) {
+    public Business(String name, double balance, String email, String username, String password) {
         this.name = name;
         this.balance = balance;
         this.email = email;
@@ -100,7 +98,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "com.revature.models.Account{" +
+        return "com.revature.models.Business{" +
                 "businessId=" + businessId +
                 ", name='" + name + '\'' +
                 ", balance=" + balance +
