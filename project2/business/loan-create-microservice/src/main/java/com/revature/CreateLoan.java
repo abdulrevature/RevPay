@@ -7,8 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.List;
-import java.util.function.Supplier;
+import java.util.function.Consumer;
 
 @SpringBootApplication
 public class CreateLoan {
@@ -20,8 +19,11 @@ public class CreateLoan {
     CreateLoanService createLoanService;
 
     @Bean
-    public Supplier<String> insertLoan() {
-        List<Loan> loans = createLoanService.getAllLoans();
-        return loans::toString;
+    public Consumer<Loan> createLoan() {
+
+        //since this is a Consumer type function, we won't return anything
+        //but we CAN see this inputted value printed in the logs for our Lambda
+
+        return value -> System.out.println(value);
     }
 }

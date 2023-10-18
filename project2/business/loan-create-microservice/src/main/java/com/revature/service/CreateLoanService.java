@@ -17,7 +17,7 @@ public class CreateLoanService {
         this.loanDAO = loanDAO;
     }
 
-    public List<Loan> getAllLoans() {
+    public List<Loan> createLoan() {
         return loanDAO.findAll();
     }
 }
