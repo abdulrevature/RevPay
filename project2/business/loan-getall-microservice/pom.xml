@@ -25,5 +25,16 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.revature.GetAllLoans</mainClass> <!-- specify your main class here -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
