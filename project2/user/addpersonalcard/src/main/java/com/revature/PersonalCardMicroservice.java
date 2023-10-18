@@ -1,6 +1,6 @@
 package com.revature;
 
-import com.revature.model.PersonalCard;
+import com.revature.models.PersonalCard;
 import com.revature.service.PersonalCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -8,6 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 
 @SpringBootApplication
 public class PersonalCardMicroservice {
@@ -19,8 +23,10 @@ public class PersonalCardMicroservice {
 
 
     @Bean
-    public ResponseEntity<PersonalCard> createCard(@RequestBody PersonalCard personalCard) {
-        PersonalCard pc = PersonalCardService.createNewCard("Debit", "Testophiles", "Examundo", 123, 01234);
-        return ResponseEntity.ok(pc);
+    public Consumer<PersonalCard> addPersonalCard() {
+        return value -> {
+            ps.addCreditCard(value);
+            System.out.println(value);
+        };
     }
 }

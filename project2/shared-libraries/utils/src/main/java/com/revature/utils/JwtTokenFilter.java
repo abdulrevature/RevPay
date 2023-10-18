@@ -1,11 +1,12 @@
-package com.revature.util;
+package com.revature.utils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.model.User;
+import com.revature.models.User;
+import com.revature.utils.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -66,7 +67,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     }
 
     private void setAuthenticationContext(String token, HttpServletRequest request) {
-        UserDetails userDetails = getUserDetails(token);
+        User userDetails = getUserDetails(token);
 
         UsernamePasswordAuthenticationToken
                 authentication = new UsernamePasswordAuthenticationToken(userDetails, null, null);
@@ -77,7 +78,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
-    private UserDetails getUserDetails(String token) {
+    private User getUserDetails(String token) {
         User userDetails = new User();
         String[] jwtSubject = jwtUtil.getSubject(token).split(",");
 

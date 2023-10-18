@@ -17,16 +17,16 @@
     <modules>
 		<module>shared-libraries/persistentdata</module>
 		<module>shared-libraries/utils</module>
-        <module>user/createuser</module>
-		<module>user/login</module>
-		<module>user/sendmoney</module>
-		<module>user/requestmoney</module>
 		<module>user/addpersonalcard</module>
-		<module>user/viewtransactions</module>
-		<module>business/addbusinesscard</module>
-        <module>business/applyforloan</module>
-		<module>business/acceptpayment</module>
-		<module>business/sendinvoice</module>
+<!--        <module>user/createuser</module>-->
+<!--		<module>user/login</module>-->
+<!--		<module>user/sendmoney</module>-->
+<!--		<module>user/requestmoney</module>-->
+			<module>user/viewtransactions</module>
+<!--		<module>business/addbusinesscard</module>-->
+<!--        <module>business/applyforloan</module>-->
+<!--		<module>business/acceptpayment</module>-->
+<!--		<module>business/sendinvoice</module>-->
 	</modules>
     <properties>
 		<java.version>11</java.version>
@@ -48,10 +48,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -101,6 +97,23 @@
 			<artifactId>jetty-jakarta-servlet-api</artifactId>
 			<version>5.0.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-function-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-function-adapter-aws</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-lambda-java-events</artifactId>
+			<version>3.11.0</version>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
