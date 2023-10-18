@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 
 import java.util.Optional;
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 @SpringBootApplication
 public class GetLoanById {
@@ -19,11 +20,16 @@ public class GetLoanById {
     @Autowired
     GetLoanByIdService getLoanByIdService;
 
-    long loanId = 1;
-
     @Bean
-    public Supplier<String> getAllLoan() {
-        Optional<Loan> loan = getLoanByIdService.getLoanById(loanId);
-        return loan::toString;
+    public Function<APIGatewayProxyRequestEvent, String> getLoanById() {
+        return input -> {
+            //Extract path parameters from the event
+            String loanIdString = input.getPathParameters().get("loanId");
+            long loanId = Long.parseLong(loanIdString);
+
+            //The rest of the function logic here
+            Optional<Loan> loan = getLoanByIdService.getLoanById(loanId);
+            return String.valueOf(loan);
+        };
     }
 }
