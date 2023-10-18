@@ -32,7 +32,7 @@ public class User {
     @Column
     private String phone;
 
-
+    private int balance;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
@@ -41,7 +41,7 @@ public class User {
 
     public User(){}
 
-    public User(long userId, String username, String password, String firstName, String lastName, String email, String phone, Account busId) {
+    public User(long userId, String username, String password, String firstName, String lastName, String email, String phone, Account busId, int balance) {
         this.userId = userId;
         this.username = username;
         this.password = password;
@@ -50,15 +50,28 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.busId = busId;
+        this.balance = balance;
     }
 
-    public User(String username, String password, String firstName, String lastName, String email, String phone) {
+    public User(String username, String password, String firstName, String lastName, String email, String phone, int balance) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.balance = balance;
+    }
+
+    public User(long userId, String username, String password, String firstName, String lastName, String email, String phone, int balance) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.balance = balance;
     }
 
 
@@ -126,9 +139,17 @@ public class User {
         this.busId = busId;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
     @Override
     public String toString() {
-        return "com.revature.models.User{" +
+        return "User{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -136,6 +157,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", balance=" + balance +
                 ", busId=" + busId +
                 '}';
     }

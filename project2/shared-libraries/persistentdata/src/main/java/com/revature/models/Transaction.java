@@ -29,6 +29,48 @@ public class Transaction {
     @JoinColumn(name = "from_user_id")
     private User fromUser;
 
+
+
+    public Transaction() {
+        setDateTime();
+    }
+
+    public Transaction(long id, MoneyRequest moneyRequest, String description, LocalDateTime dateTime, int amount, User toUser, User fromUser) {
+        this.id = id;
+        this.moneyRequest = moneyRequest;
+        this.description = description;
+        this.dateTime = dateTime;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
+
+    public Transaction(MoneyRequest moneyRequest, String description, LocalDateTime dateTime, int amount, User toUser, User fromUser) {
+        this.moneyRequest = moneyRequest;
+        this.description = description;
+        this.dateTime = dateTime;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
+
+    public Transaction(long id, String description, LocalDateTime dateTime, int amount, User toUser, User fromUser) {
+        this.id = id;
+        this.description = description;
+        this.dateTime = dateTime;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
+
+    public Transaction(String description, LocalDateTime dateTime, int amount, User toUser, User fromUser) {
+        this.description = description;
+        this.dateTime = dateTime;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
+
     public Transaction(long id, MoneyRequest moneyRequest, String description, int amount, User toUser, User fromUser) {
         this.id = id;
         this.moneyRequest = moneyRequest;
@@ -36,6 +78,7 @@ public class Transaction {
         this.amount = amount;
         this.toUser = toUser;
         this.fromUser = fromUser;
+        setDateTime();
     }
 
     public Transaction(MoneyRequest moneyRequest, String description, int amount, User toUser, User fromUser) {
@@ -44,13 +87,7 @@ public class Transaction {
         this.amount = amount;
         this.toUser = toUser;
         this.fromUser = fromUser;
-    }
-
-    public Transaction(String description, int amount, User toUser, User fromUser) {
-        this.description = description;
-        this.amount = amount;
-        this.toUser = toUser;
-        this.fromUser = fromUser;
+        setDateTime();
     }
 
     public Transaction(long id, String description, int amount, User toUser, User fromUser) {
@@ -59,9 +96,15 @@ public class Transaction {
         this.amount = amount;
         this.toUser = toUser;
         this.fromUser = fromUser;
+        setDateTime();
     }
 
-    public Transaction() {
+    public Transaction(String description, int amount, User toUser, User fromUser) {
+        this.description = description;
+        this.amount = amount;
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+        setDateTime();
     }
 
 
@@ -99,5 +142,42 @@ public class Transaction {
 
     private void setDateTime() {
         dateTime = LocalDateTime.now();
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public User getToUser() {
+        return toUser;
+    }
+
+    public void setToUser(User toUser) {
+        this.toUser = toUser;
+    }
+
+    public User getFromUser() {
+        return fromUser;
+    }
+
+    public void setFromUser(User fromUser) {
+        this.fromUser = fromUser;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", moneyRequest=" + moneyRequest +
+                ", description='" + description + '\'' +
+                ", dateTime=" + dateTime +
+                ", amount=" + amount +
+                ", toUser=" + toUser +
+                ", fromUser=" + fromUser +
+                '}';
     }
 }
