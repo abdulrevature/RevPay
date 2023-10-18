@@ -13,7 +13,7 @@ public class CreateLoan {
     }
 
     @Bean
-    public Consumer<String> insertItem() {
+    public Consumer<String> insertLoan() {
         // This return is only used to see the inputted value
         return System.out::println;
     }

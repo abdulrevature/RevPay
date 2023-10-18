@@ -1,10 +1,11 @@
 package com.revature;
 
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.function.Consumer;
+import java.util.function.Function;
 
 @SpringBootApplication
 public class UpdateLoanApproval {
@@ -12,9 +13,15 @@ public class UpdateLoanApproval {
         SpringApplication.run(UpdateLoanApproval.class, args);
     }
 
+    //get item by id (path param example)
     @Bean
-    public Consumer<String> insertItem() {
-        // This return is only used to see the inputted value
-        return System.out::println;
+    public Function<APIGatewayProxyRequestEvent, String> getItemById() {
+        return input -> {
+            //Extract path parameters from the event
+            String itemId = input.getPathParameters().get("itemId");
+            //The rest of the function logic here
+            String response = "Received itemId: " + itemId;
+            return response;
+        };
     }
 }
