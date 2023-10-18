@@ -15,21 +15,21 @@
     <name>project2</name>
     <description>Demo project for Spring Boot</description>
     <modules>
-        <module>shared-libraries/persistentdata</module>
-        <module>shared-libraries/utils</module>
-        <!--		<module>user/addpersonalcard</module>-->
-        <!--        <module>user/createuser</module>-->
-        <!--		<module>user/login</module>-->
-        <!--		<module>user/sendmoney</module>-->
-        <!--		<module>user/requestmoney</module>-->
-        <!--		<module>user/viewtransactions</module>-->
-        <!--		<module>business/addbusinesscard</module>-->
-        <module>business/loan-create-microservice</module>
-        <module>business/loan-getall-microservice</module>
-        <module>business/loan-getbyid-microservice</module>
-        <module>business/loan-updateapproval-microservice</module>
-        <!--		<module>business/acceptpayment</module>-->
-        <!--		<module>business/sendinvoice</module>-->
+        <module>persistentdata</module>
+        <module>utils</module>
+        <!--		<module>addpersonalcard</module>-->
+        <!--        <module>createuser</module>-->
+        <!--		<module>login</module>-->
+        <!--		<module>sendmoney</module>-->
+        <!--		<module>requestmoney</module>-->
+        <!--		<module>viewtransactions</module>-->
+        <!--		<module>addbusinesscard</module>-->
+        <module>loan-create-microservice</module>
+        <module>loan-getall-microservice</module>
+        <module>loan-getbyid-microservice</module>
+        <module>loan-updateapproval-microservice</module>
+        <!--		<module>acceptpayment</module>-->
+        <!--		<module>sendinvoice</module>-->
     </modules>
     <properties>
         <java.version>11</java.version>
@@ -133,22 +133,8 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.springframework.boot.experimental</groupId>
-                        <artifactId>spring-boot-thin-layout</artifactId>
-                        <version>1.0.28.RELEASE</version>
-                    </dependency>
-                </dependencies>
                 <executions>
                     <execution>
                         <id>repackage</id>
@@ -157,16 +143,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                    <shadedArtifactAttached>true</shadedArtifactAttached>
-                    <shadedClassifierName>aws</shadedClassifierName>
-                </configuration>
             </plugin>
         </plugins>
     </build>

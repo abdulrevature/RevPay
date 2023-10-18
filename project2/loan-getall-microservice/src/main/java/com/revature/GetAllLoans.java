@@ -4,16 +4,18 @@ import com.revature.models.Loan;
 import com.revature.service.GetAllLoansService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.function.context.FunctionalSpringApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 import java.util.function.Supplier;
 
-@SpringBootApplication
-public class GetAllLoans {
+@SpringBootConfiguration
+public class GetAllLoans implements Supplier<String> {
     public static void main(String[] args) {
-        SpringApplication.run(GetAllLoans.class, args);
+        FunctionalSpringApplication.run(GetAllLoans.class, args);
 
     }
 
@@ -25,9 +27,8 @@ public class GetAllLoans {
         this.getAllLoansService = getAllLoansService;
     }
 
-    @Bean
-    public Supplier<String> getAllLoan() {
-        List<Loan> loans = getAllLoansService.getAllLoans();
-        return loans::toString;
+    @Override
+    public String get() {
+        return getAllLoansService.getAllLoans().toString();
     }
 }

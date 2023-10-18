@@ -7,10 +7,9 @@
         <groupId>com.revature</groupId>
         <artifactId>project2</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>loan-create-microservice</artifactId>
+    <artifactId>loan-updateapproval-microservice</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
