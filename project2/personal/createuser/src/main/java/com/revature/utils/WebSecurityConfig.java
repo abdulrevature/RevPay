@@ -32,13 +32,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(
-//                username -> (UserDetails) userDAO.findByUsername(username)
-//                        .orElseThrow(
-//                                () -> new UsernameNotFoundException("User " + username + " not found.")));
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(
+                username -> (UserDetails) userDAO.findByUsername(username)
+                        .orElseThrow(
+                                () -> new UsernameNotFoundException("User " + username + " not found.")));
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
