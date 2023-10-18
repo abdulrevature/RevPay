@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
 import java.util.function.Consumer;
 
 @SpringBootApplication
-public class applyforloan {
+public class GetLoanById {
     public static void main(String[] args) {
-        SpringApplication.run(applyforloan.class, args);
+        SpringApplication.run(GetLoanById.class, args);
     }
 
     @Bean

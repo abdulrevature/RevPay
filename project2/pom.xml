@@ -24,7 +24,10 @@
         <!--		<module>user/requestmoney</module>-->
         <!--		<module>user/viewtransactions</module>-->
         <!--		<module>business/addbusinesscard</module>-->
-        <!--        <module>business/applyforloan</module>-->
+        <module>business/loan-create-microservice</module>
+        <module>business/loan-getall-microservice</module>
+        <module>business/loan-getbyid-microservice</module>
+        <module>business/loan-updateapproval-microservice</module>
         <!--		<module>business/acceptpayment</module>-->
         <!--		<module>business/sendinvoice</module>-->
     </modules>
