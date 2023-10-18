@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>loan-getall-microservice</artifactId>
+    <artifactId>loan-create-microservice</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
