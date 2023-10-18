@@ -1,10 +1,14 @@
 package com.revature;
 
+import com.revature.models.Loan;
+import com.revature.service.CreateLoanService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.function.Consumer;
+import java.util.List;
+import java.util.function.Supplier;
 
 @SpringBootApplication
 public class CreateLoan {
@@ -12,9 +16,12 @@ public class CreateLoan {
         SpringApplication.run(CreateLoan.class, args);
     }
 
+    @Autowired
+    CreateLoanService createLoanService;
+
     @Bean
-    public Consumer<String> insertLoan() {
-        // This return is only used to see the inputted value
-        return System.out::println;
+    public Supplier<String> insertLoan() {
+        List<Loan> loans = createLoanService.getAllLoans();
+        return loans::toString;
     }
 }
