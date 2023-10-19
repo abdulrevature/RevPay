@@ -28,6 +28,7 @@
         <module>loan-getall-microservice</module>
         <module>loan-getbyid-microservice</module>
         <module>loan-updateapproval-microservice</module>
+        <module>mailer</module>
         <!--		<module>acceptpayment</module>-->
         <!--		<module>sendinvoice</module>-->
     </modules>
