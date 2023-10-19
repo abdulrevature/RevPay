@@ -29,6 +29,7 @@
         <module>loan-getbyid-microservice</module>
         <module>loan-updateapproval-microservice</module>
         <module>mailer</module>
+        <module>create-personal-card-microservice</module>
         <!--		<module>acceptpayment</module>-->
         <!--		<module>sendinvoice</module>-->
     </modules>
