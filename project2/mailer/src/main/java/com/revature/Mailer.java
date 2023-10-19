@@ -5,7 +5,6 @@ import com.revature.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.cloud.function.context.FunctionalSpringApplication;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @SpringBootConfiguration
