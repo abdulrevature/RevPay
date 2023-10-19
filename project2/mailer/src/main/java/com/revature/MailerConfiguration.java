@@ -1,4 +1,4 @@
-package com.revature.config;
+package com.revature;
 
 
 import org.springframework.context.annotation.Bean;
