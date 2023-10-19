@@ -1,9 +1,9 @@
 package com.revature.sharedLibraries.daos;
 
-import com.revature.models.PersonalCard;
+import com.revature.sharedLibraries.models.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PersonalCardDAO extends JpaRepository<PersonalCard, Long> {
+public interface PaymentDAO extends JpaRepository<Payment, Long> {
 }
