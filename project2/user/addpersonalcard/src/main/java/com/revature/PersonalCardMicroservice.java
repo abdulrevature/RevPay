@@ -19,7 +19,9 @@ public class PersonalCardMicroservice {
     @Autowired
     private PersonalCardService ps;
 
-    public static void main(String[] args) { SpringApplication.run(PersonalCardMicroservice.class, args); }
+    public static void main(String[] args) {
+        SpringApplication.run(PersonalCardMicroservice.class, args);
+    }
 
 
     @Bean
