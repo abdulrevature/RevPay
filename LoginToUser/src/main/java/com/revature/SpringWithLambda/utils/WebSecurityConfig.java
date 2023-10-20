@@ -1,5 +1,6 @@
 package com.revature.SpringWithLambda.utils;
 
+import com.revature.SpringWithLambda.daos.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,6 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
+
+    @Autowired
+    private UserDAO userDAO;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
