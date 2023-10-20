@@ -24,7 +24,7 @@ public class SpringWithLambdaApplication {
     private CreateLoanService createLoanService;
 
     @Bean
-    public Consumer<String> createLoan(@RequestBody Loan loan, @PathVariable("accountId") long businessId) {
+    public Consumer<String> createLoan(@RequestBody Loan loan, @PathVariable("businessId") long businessId) {
 //    public Consumer<String> createLoan() {
 //    Loan loan = new Loan(new BigDecimal("110.03"), false, false, new BigDecimal("0.03"), 12, LocalDateTime.parse("2016-11-09T11:44:44.79"));
         try {
