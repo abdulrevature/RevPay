@@ -60,6 +60,11 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot.experimental</groupId>
+			<artifactId>spring-boot-thin-layout</artifactId>
+			<version>1.0.28.RELEASE</version>
+		</dependency>
 
 	</dependencies>
 	<dependencyManagement>
@@ -87,11 +92,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<dependencies>
-<!--					<dependency>-->
-<!--						<groupId>org.springframework.boot.experimental</groupId>-->
-<!--						<artifactId>spring-boot-thin-layout</artifactId>-->
-<!--						<version>1.0.28.RELEASE</version>-->
-<!--					</dependency>-->
+					<dependency>
+						<groupId>org.springframework.boot.experimental</groupId>
+						<artifactId>spring-boot-thin-layout</artifactId>
+						<version>1.0.28.RELEASE</version>
+					</dependency>
 				</dependencies>
 			</plugin>
 			<plugin>

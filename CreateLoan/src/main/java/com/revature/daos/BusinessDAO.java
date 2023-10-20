@@ -1,6 +1,6 @@
-package com.revature.SpringWithLambda.daos;
+package com.revature.daos;
 
-import com.revature.SpringWithLambda.models.Business;
+import com.revature.models.Business;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

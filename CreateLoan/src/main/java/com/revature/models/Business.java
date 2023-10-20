@@ -1,4 +1,4 @@
-package com.revature.SpringWithLambda.models;
+package com.revature.models;
 
 import org.springframework.stereotype.Component;
 
