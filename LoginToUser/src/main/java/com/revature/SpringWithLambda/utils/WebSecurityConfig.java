@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 This class extends the WebSecurityConfigurerAdapter.
 It's a convenience class that allows customization to both WebSecurity and HttpSecurity.
 
-This Util Class will define a couple things like password encryption and which routes need JWTs to access
+This Util Class will define a couple of things like password encryption and which routes need JWTs to access
  */
 
 @EnableWebSecurity
@@ -31,14 +31,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(
-//                //need to construct a lambda function that retrieves the user by username
-//                username -> (UserDetails) userDAO.findByUsername(username)
-//                        .orElseThrow(
-//                                () -> new UsernameNotFoundException("User " + username + " not found.")));
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(
+                //need to construct a lambda function that retrieves the user by username
+                username -> (UserDetails) userDAO.findByUsername(username)
+                        .orElseThrow(
+                                () -> new UsernameNotFoundException("User " + username + " not found.")));
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
